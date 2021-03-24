@@ -7,6 +7,10 @@ android {
     compileSdkVersion 29
     buildToolsVersion "30.0.3"
 
+    buildFeatures {
+        viewBinding true
+    }
+
     defaultConfig {
         applicationId "com.ambial.simpletimer"
         minSdkVersion 21
@@ -41,6 +45,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.4'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.4'
+    implementation 'androidx.preference:preference-ktx:1.1.1'
     implementation 'me.zhanghai.android.materialprogressbar:library:1.6.1'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
