@@ -53,5 +53,18 @@ class PrefUtil {
             editor.putLong(SECONDS_REMAINING_ID, seconds)
             editor.apply()
         }
+
+        private val ALARM_SET_TIME_ID = "com.ambial.simpletimer.background_time"
+
+        fun getAlarmTime(context: Context):Long{
+            val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+            return preferences.getLong(ALARM_SET_TIME_ID, 0L)
+        }
+
+        fun setAlarmTime(context: Context, time:Long){
+            val editor = PreferenceManager.getDefaultSharedPreferences(context).edit()
+            editor.putLong(ALARM_SET_TIME_ID, time)
+            editor.apply()
+        }
     }
 }
