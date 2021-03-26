@@ -11,6 +11,7 @@ import android.view.MenuItem
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.ambial.simpletimer.databinding.ActivityMainBinding
+import com.ambial.simpletimer.util.NotificationUtil
 import com.ambial.simpletimer.util.PrefUtil
 import com.google.android.material.snackbar.Snackbar
 import me.zhanghai.android.materialprogressbar.MaterialProgressBar
@@ -105,8 +106,7 @@ class TimerActivity : AppCompatActivity() {
 
         initTimer()
         removeAlarm(context = this)
-
-        //TODO: Hide notification
+        NotificationUtil.hideNotification(context = this)
     }
 
     override fun onPause() {
@@ -114,12 +114,10 @@ class TimerActivity : AppCompatActivity() {
 
         if (timerState == TimerState.Running){
             timer.cancel()
-
         val wakeUpTIme = setAlarm(this, nowSeconds, secondsLeft)
-
-            //TODO: Show notification
+        NotificationUtil.showTimerRunning(context = this, wakeUpTime = wakeUpTIme)
         } else if (timerState == TimerState.Paused){
-            //TODO: Show notification
+            NotificationUtil.showTimerPaused(context = this)
         }
 
         PrefUtil.setPreviousTimerLength(context = this,seconds = timerLengthSeconds)
