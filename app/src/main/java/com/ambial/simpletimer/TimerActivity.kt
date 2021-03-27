@@ -10,7 +10,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.ambial.simpletimer.databinding.ActivityMainBinding
+import com.ambial.simpletimer.databinding.ActivityTimerBinding
 import com.ambial.simpletimer.util.NotificationUtil
 import com.ambial.simpletimer.util.PrefUtil
 import com.google.android.material.snackbar.Snackbar
@@ -49,7 +49,7 @@ class TimerActivity : AppCompatActivity() {
         Stopped, Paused, Running
     }
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityTimerBinding
 
     private lateinit var timer : CountDownTimer
     private var timerLengthSeconds = 0L
@@ -62,7 +62,7 @@ class TimerActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityTimerBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setSupportActionBar(findViewById(R.id.toolbar))
@@ -239,7 +239,11 @@ class TimerActivity : AppCompatActivity() {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
-            R.id.action_settings -> true
+            R.id.action_settings -> {
+                val intent = Intent(this, SettingsActivity::class.java)
+                startActivity(intent)
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }

@@ -7,9 +7,12 @@ import com.ambial.simpletimer.TimerActivity
 
 class PrefUtil {
     companion object {
+
+        private const val TIMER_LENGTH_ID = "com.ambial.simpletimer.timer_length"
+
         fun getTimerLength(context:Context):Int{
-            //placeholder
-            return 1
+            val preferences = PreferenceManager.getDefaultSharedPreferences(context)
+            return preferences.getInt(TIMER_LENGTH_ID, 10)
         }
 
         private val PREVIOUS_TIMER_LENGTH_SECONDS_ID = "com.ambial.simpletimer.previous_timer_length"

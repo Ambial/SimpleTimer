@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory
+        app:key="com.ambial.simpletimer.timer_settings"
+        app:title="Timer settings"
+        >
+        <SeekBarPreference
+            android:max="60"
+            app:defaultValue="10"
+            app:key="com.ambial.simpletimer.timer_length"
+            app:min="1"
+            app:summary="For how many minutes should the timer run?"
+            app:title="Timer Length" />
+    </PreferenceCategory>
+
+</androidx.preference.PreferenceScreen>
